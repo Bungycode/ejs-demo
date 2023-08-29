@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <main>
+      <div class="jumbotron">
+        <h1>This is great</h1>
+        <p>Welcome to templating using EJS</p>
+        <h2>Variable</h2>
+        <p><%= tagline %></p>
+
+        <ul>
+          <!-- When using EJS, each element requires for you to use an opening EJS tag and a closing EJS tag. It will throw an error if you only have either an opening or closing ejs tag for the html element. If you decide to use a loop and a forEach function for example and you want to create nested html elements, you have to have an open and closing tag for each html element or an error will be thrown. -->
+          <% mascots.forEach(function(mascot) { %>
+          <li>
+            <strong><%= mascot.name %></strong>
+            representing <%= mascot.organization %>, born <%= mascot.birth_year
+            %>
+          </li>
+          <%}); %>
+        </ul>
+      </div>
+    </main>
+
+    <footer></footer>
+    <%- include('../partials/footer'); %>
+  </body>
+</html>
